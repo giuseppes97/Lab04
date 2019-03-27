@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="442.0" prefWidth="561.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.lab04.controller.SegreteriaStudentiController">
+<BorderPane prefHeight="442.0" prefWidth="561.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.lab04.controller.SegreteriaStudentiController">
    <top>
       <Label text="Lab3_Segreteria Studenti" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="20.0" top="10.0" />
          </BorderPane.margin></Label>
    </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="561.0">
+               <children>
+                  <Label prefHeight="33.0" prefWidth="85.0" text="    Corso:    ">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="finestrasceltecorsi" prefHeight="33.0" prefWidth="173.0" />
+               </children>
+            </HBox>
+            <Button fx:id="bottonecercaiscr" mnemonicParsing="false" onAction="#docercaiscritti" prefHeight="34.0" prefWidth="141.0" text="Cerca iscritti corso" />
+            <HBox prefHeight="34.0" prefWidth="561.0">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="76.0" text="  Studente:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="testomatricola" prefHeight="25.0" prefWidth="91.0" />
+                  <Button fx:id="bottonecompleta" mnemonicParsing="false" onAction="#docompletastudente" prefHeight="25.0" prefWidth="35.0" style="-fx-background-color: green;" text="V" textFill="#fffefe">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <TextField fx:id="testonome" editable="false">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="testocognome" editable="false">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <TextArea fx:id="testorisultati" editable="false" prefHeight="256.0" prefWidth="561.0" />
+         </children>
+      </VBox>
+   </center>
 </BorderPane>
