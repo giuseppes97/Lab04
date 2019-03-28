@@ -65,7 +65,17 @@ public class SegreteriaStudentiController {
     }
     @FXML
     void doiscrivistudente(ActionEvent event) {
-
+   testorisultati.clear();
+   int flag=0;
+    List<Corso> lc=modello.getCorsidovestudenteiscritto(testomatricola.getText());
+    for(Corso c:lc) {
+    	if(c.getNome().equals(finestrasceltecorsi.getValue())) {testorisultati.appendText("Studente già iscritto a questo corso!"); flag=1;}
+    }
+    if(flag==0) {
+    	Corso c=modello.getcorsodanome(finestrasceltecorsi.getValue());
+    	boolean a=modello.iscrivistudente(testomatricola.getText(),c.getCodins());
+    	if(a==true) {testorisultati.appendText("Studente iscritto correttamente!\n");}
+    }
     }
 
     @FXML
@@ -74,9 +84,11 @@ public class SegreteriaStudentiController {
     }
     @FXML
     void cercacorsi(ActionEvent event) {
+    	testorisultati.clear();
     	String matricola=testomatricola.getText();
+    	if(modello.getstudentedamatricola(matricola)==null) {testorisultati.appendText("Errore,studente non esiste!\n"); return;}
         List<Corso> c=modello.getCorsidovestudenteiscritto(matricola);
-        testorisultati.clear();
+        
         for(Corso co:c) {
         	testorisultati.appendText(""+co.getCodins()+" "+co.getCrediti()+" "+co.getNome()+" "+co.getPd()+"\n");
         }

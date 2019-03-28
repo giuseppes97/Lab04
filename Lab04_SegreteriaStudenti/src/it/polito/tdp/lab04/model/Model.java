@@ -34,7 +34,18 @@ public List<Corso> getCorsidovestudenteiscritto(String matricola){
 	List<Corso> lc=cd.getcorsidellostudente(matricola);
 	return lc;
 }
+public Studente getstudentedamatricola(String matr) {
+	return sdao.getStudentedamatricola(matr);
+}
+public boolean iscrivistudente(String text, String value) {
+	return cd.aggiungistudente(text,value);
 	
+}
+public Corso getcorsodanome(String value) {
+	Corso c=cd.getCorsoDaNome(value);
+	return c;
+}
+
 	
 	
 	

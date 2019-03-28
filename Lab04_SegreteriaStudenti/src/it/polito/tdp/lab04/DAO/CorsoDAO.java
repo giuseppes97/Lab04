@@ -168,4 +168,31 @@ public class CorsoDAO {
 				
 		
 	}
+	public boolean aggiungistudente(String text, String value) {
+		final String sql = "INSERT INTO iscrizione VALUES ?,?";
+		   
+				
+
+				try {
+					Connection conn = ConnectDB.getConnection();
+					PreparedStatement st = conn.prepareStatement(sql);
+					int a=Integer.parseInt(text);
+		            st.setInt(1, a);
+		            st.setString(2, value);
+					ResultSet rs = st.executeQuery();
+		            
+					
+					
+					return true;
+		            
+				
+
+				} catch (SQLException e) {
+					// e.printStackTrace();
+					throw new RuntimeException("Errore Db");
+				}
+				
+		
+	}
+	
 }
