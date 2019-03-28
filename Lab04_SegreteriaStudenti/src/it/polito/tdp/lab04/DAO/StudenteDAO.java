@@ -17,7 +17,10 @@ public class StudenteDAO {
 		PreparedStatement st = conn.prepareStatement(sql);
         st.setString(1, matricola);
 		ResultSet rs = st.executeQuery();
-		if(rs.next()) { Studente s=new Studente(rs.getString("matricola"),rs.getString("cognome"),rs.getString("nome"),rs.getString("CDS")); return s;  }
+		
+		if(rs.next()) { Studente s=new Studente(rs.getString("matricola"),rs.getString("cognome"),rs.getString("nome"),rs.getString("CDS"));
+		
+		return s;  }
 	
 	}catch (SQLException e) {
 		// e.printStackTrace();

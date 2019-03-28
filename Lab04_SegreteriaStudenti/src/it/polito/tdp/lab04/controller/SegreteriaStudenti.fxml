@@ -61,6 +61,13 @@
                </VBox.margin>
             </HBox>
             <TextArea fx:id="testorisultati" editable="false" prefHeight="256.0" prefWidth="561.0" />
+            <HBox>
+               <children>
+                  <Button fx:id="bottonecercacorsi" mnemonicParsing="false" onAction="#cercacorsi" text="Cerca corsi" />
+                  <Button fx:id="bottoneiscrivi" mnemonicParsing="false" onAction="#doiscrivistudente" text="Iscrivi" />
+                  <Button fx:id="bottonereset" mnemonicParsing="false" onAction="#doreset" text="Reset" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </center>

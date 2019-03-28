@@ -22,6 +22,18 @@ public String getcognomematricola(String m) {
 public String getnomematricola(String m) {
 	return sdao.getStudentedamatricola(m).getNome();
 }
+public List<Studente> getIscrittialcorso(String nomecorso){
+	Corso c=cd.getCorsoDaNome(nomecorso);
+	List<Studente> s;
+	s=cd.getStudentiIscrittiAlCorso(c);
+	return s;
+	
+	
+}
+public List<Corso> getCorsidovestudenteiscritto(String matricola){
+	List<Corso> lc=cd.getcorsidellostudente(matricola);
+	return lc;
+}
 	
 	
 	

@@ -1,6 +1,8 @@
 package it.polito.tdp.lab04.controller;
-
+import it.polito.tdp.lab04.model.*;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.lab04.model.Model;
@@ -13,6 +15,7 @@ import javafx.scene.control.TextField;
 
 
 public class SegreteriaStudentiController {
+	private List<Studente> listastud = new ArrayList<Studente>();
     private Model modello;
     @FXML
     private ResourceBundle resources;
@@ -40,10 +43,43 @@ public class SegreteriaStudentiController {
 
     @FXML
     private TextArea testorisultati;
+    @FXML
+    private Button bottonecercacorsi;
+
+    @FXML
+    private Button bottoneiscrivi;
+
+    @FXML
+    private Button bottonereset;
 
     @FXML
     void docercaiscritti(ActionEvent event) {
+    	testorisultati.clear();
+    	
+  String corso=finestrasceltecorsi.getValue();
+  if(corso.equals("")) {testorisultati.appendText("Devi scegliere un corso!\n");}
+ List<Studente> s= modello.getIscrittialcorso(corso);
+ for(Studente stu:s) {
+	 testorisultati.appendText(""+stu.getMatricola()+" "+stu.getCognome()+" "+stu.getNome()+" "+stu.getCds()+"\n");
+ }
+    }
+    @FXML
+    void doiscrivistudente(ActionEvent event) {
 
+    }
+
+    @FXML
+    void doreset(ActionEvent event) {
+
+    }
+    @FXML
+    void cercacorsi(ActionEvent event) {
+    	String matricola=testomatricola.getText();
+        List<Corso> c=modello.getCorsidovestudenteiscritto(matricola);
+        testorisultati.clear();
+        for(Corso co:c) {
+        	testorisultati.appendText(""+co.getCodins()+" "+co.getCrediti()+" "+co.getNome()+" "+co.getPd()+"\n");
+        }
     }
 
     @FXML
